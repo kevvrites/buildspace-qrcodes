@@ -2,19 +2,43 @@
 <html>
   <head>
     <title>QR Code Generator</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
   <body>
     <div class="container">
       <h1>QR Code Generator</h1>
-      <form id="qr-form">
-        <input type="text" id="qr-input" placeholder="Enter URL" />
-        <button type="submit" id="qr-generate">Generate</button>
-      </form>
-      <div id="qr-code"></div>
+      <input type="text" id="titleInput" placeholder="Enter title" />
+      <input
+        type="text"
+        id="descriptionInput"
+        placeholder="Enter description"
+      />
+      <input type="text" id="linkInput" placeholder="Enter link" />
+      <button onclick="generateQRCode()">Generate QR Code</button>
+      <div id="textContainer"></div>
+      <div id="qrCodeContainer"></div>
+      <a id="downloadLink" href="#" download>Download QR Code</a>
+      <div id="colorButtonsContainer">
+        <button
+          class="colorButton"
+          onclick="changeBackgroundColor('#FF6767')"
+        ></button>
+        <button
+          class="colorButton"
+          onclick="changeBackgroundColor('#67FFC1')"
+        ></button>
+        <button
+          class="colorButton"
+          onclick="changeBackgroundColor('#67B3FF')"
+        ></button>
+        <button
+          class="colorButton"
+          onclick="changeBackgroundColor('#FFD567')"
+        ></button>
+      </div>
     </div>
-    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+
+    <script src="qrcode.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,19 +1,27 @@
-// Get the form and input element
-const form = document.getElementById("qr-form");
-const input = document.getElementById("qr-input");
+function changeBackgroundColor(color) {
+  document.body.style.backgroundColor = color;
+}
 
-// Handle form submission
-form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form from submitting
+function generateQRCode() {
+  var titleInput = document.getElementById("titleInput").value;
+  var descriptionInput = document.getElementById("descriptionInput").value;
+  var linkInput = document.getElementById("linkInput").value;
 
-  const url = input.value;
+  var textContainer = document.getElementById("textContainer");
+  textContainer.innerHTML =
+    "<h2>" + titleInput + "</h2>" + "<p>" + descriptionInput + "</p>";
 
-  // Generate QR code using QRCode.js library
-  const qrCode = new QRCode("qr-code", {
-    text: url,
-    width: 128,
-    height: 128,
+  var qrCodeContainer = document.getElementById("qrCodeContainer");
+  qrCodeContainer.innerHTML = "";
+
+  var qrText = linkInput;
+
+  var qr = new QRCode(qrCodeContainer, {
+    text: qrText,
+    width: 200,
+    height: 200,
   });
 
-  input.value = ""; // Clear input field
-});
+  var downloadLink = document.getElementById("downloadLink");
+  downloadLink.href = qrCodeContainer.firstChild.toDataURL("image/png");
+}
