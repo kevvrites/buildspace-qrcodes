@@ -24,13 +24,17 @@ function generateQRCode() {
     height: 200,
   });
 
-  html2canvas(document.getElementById("outputContainer")).then(function (
-    canvas
-  ) {
-    const outputContainer = document.getElementById("outputContainer");
-    outputContainer.classList.remove("hide-container");
-    outputContainer.classList.add("show-container");
+  const outputContainer = document.getElementById("outputContainer");
+  outputContainer.classList.remove("hide-container");
+  outputContainer.classList.add("show-container");
 
-    // Rest of the code
-  });
+  setTimeout(() => {
+    html2canvas(outputContainer).then(function (canvas) {
+      const url = canvas.toDataURL("image/png");
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "output.png";
+      anchor.click();
+    });
+  }, 100);
 }
