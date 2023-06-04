@@ -16,6 +16,7 @@ body {
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 .hide-container {
@@ -62,13 +63,6 @@ button:hover {
   margin: 20px auto 10px auto;
   padding: 50px 20px 20px;
 }
-
-/* #outputContainer {
-  justify-content: center;
-  padding: 50px;
-  margin-top: 20px;
-  border-radius: 4px;
-} */
 
 #outputContainer h2,
 #outputContainer p {
@@ -120,4 +114,58 @@ button:hover {
 
 .colorButton:nth-child(4) {
   background-color: #02ff0e;
+}
+
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 400px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 5px;
+  }
+  
+  .hide-container {
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transition: visibility 0s, height 0.5s, opacity 0.5s;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  input[type="text"] {
+    width: 95%;
+    margin-bottom: 12px;
+  }
+  
+  button {
+    margin-top: 16px;
+  }
+  
+  #outputContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    margin: 20px auto 10px auto;
+    padding: 50px 20px 20px;
+  }
+  
+  #outputContainer img {
+    margin-top: 20px;
+    max-width: 200px;
+    width: 100%;
+  }
 }
